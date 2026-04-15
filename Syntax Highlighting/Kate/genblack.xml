@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="GenBlack" version="1" kateversion="5.0" section="Scripts" extensions="*.txt">
+    <highlighting default-context="Normal">
+
+        <!-- ========== 1. KEYWORD LISTS ========== -->
+        <list name="keywords1">
+            <item> ENABLE </item> <item> DIASABLE </item> <item> GLUE </item> <item> DELETE_ALL </item>
+            <item> CLEAN_ALL </item> <item> DELETE_MODEL </item> <item> CLEAN_MODEL </item> <item> DELETE_COL </item>
+            <item> CLEAN_COL </item> <item> DELETE_SHADOW </item> <item> CLEAN_SHADOW </item> <item> DELETE </item>
+            <item> CLEAN </item> <item> ADD </item> <item> ADD_LOD1 </item> <item> ADD_SHADOW </item> <item> ADD_LOD2 </item>
+            <item> ADD_COL </item> <item> ADJUST_TEXTURE_SIZE </item> <item> RENDER_TEMPLATE </item> <item> SET_TEXTURE_SLOT </item>
+            <item> SET_TEXTURE_SLOT2 </item> <item> SET_TEXTURE_SLOT3 </item> <item> NEW_OBJECT </item> <item> SET_COLOR </item>
+            <item> DEL </item> <item> SET_BB </item> <item> CHECK_BB </item> <item> SCALE_TEXTURE </item> <item> MOVE_TEXTURE </item>
+            <item> PLATE_FIX </item>
+        </list>
+        <list name="keywords2">
+            <item> SINGLE </item> <item> EXTEND </item>
+        </list>
+        <list name="keywords3">
+            <item> OPAQUE </item> <item> SHINE </item>
+        </list>
+        <list name="keywords4">
+            <item> TOP </item> <item> FRONT </item> <item> SIDE </item> <item> BACK </item>
+        </list>
+        <list name="keywords5">
+            <item> MODEL </item>
+        </list>
+        <list name="keywords6">
+            <item> MESH </item>
+        </list>
+        <list name="keywords7">
+            <item> SUBMESHES_COUNT </item> <item> MIRROR_STATE MIRROR_ONLY </item> <item> MIRROR_STATE MIRROR_FIX_POSSIBLE </item>
+            <item> MESH_TYPE MAIN </item> <item> MESH_TYPE CALIPER </item> <item> MESH_TYPE WHEEL </item> <item> MESH_TYPE DEFAULT </item>
+            <item> MESH_TYPE ALWAYS_VISIBLE </item> <item> MESH_TYPE MIRROR </item> <item> MESH_FIX ON </item> <item> MESH_FIX OFF </item>
+            <item> MIRROR ON </item> <item> MIRROR OFF </item> <item> MIRROR FIX </item> <item> MIRROR FIX2 </item> <item> MIRROR FIX3 </item>
+            <item> MIRROR BODYON </item> <item> MIRROR BODYOFF </item> <item> MIRROR BODYFIX </item>
+        </list>
+        <list name="keywords8">
+            <item> LOAD </item> <item> WRITE </item> <item> EXIT </item>
+        </list>
+
+        <!-- ========== 2. CONTEXTS (RULES) ========== -->
+        <contexts>
+            <context name="Normal" attribute="Normal" lineEndContext="#stay">
+                <!-- Yorum Satırı: # ile başlayan ve satır sonuna kadar devam eden -->
+                <RegExpr attribute="Comment" context="#stay" String="#.*$" />
+
+                <!-- Sekiz anahtar kelime listesini kontrol et -->
+                <keyword attribute="Keyword1" context="#stay" String="keywords1" />
+                <keyword attribute="Keyword2" context="#stay" String="keywords2" />
+                <keyword attribute="Keyword3" context="#stay" String="keywords3" />
+                <keyword attribute="Keyword4" context="#stay" String="keywords4" />
+                <keyword attribute="Keyword5" context="#stay" String="keywords5" />
+                <keyword attribute="Keyword6" context="#stay" String="keywords6" />
+                <keyword attribute="Keyword7" context="#stay" String="keywords7" />
+                <keyword attribute="Keyword8" context="#stay" String="keywords8" />
+
+                <!-- Sayılar -->
+                <RegExpr attribute="Number" context="#stay" String="\b[0-9]+\b" />
+            </context>
+        </contexts>
+
+        <!-- ========== 3. ATTRIBUTES (STYLES & COLORS) ========== -->
+        <itemDatas>
+            <itemData name="Normal" defStyleNum="dsNormal" color="#F1F2F3" bgColor="#1E1E1E" />
+            <itemData name="Comment" defStyleNum="dsComment" color="#57A64A" bgColor="#1E1E1E" italic="1" />
+            <itemData name="Number" defStyleNum="dsDecNumber" color="#C1D6B6" bgColor="#1E1E1E" />
+            <itemData name="Keyword1" defStyleNum="dsKeyword" color="#3CAAF0" bgColor="#1E1E1E" bold="1" />
+            <itemData name="Keyword2" defStyleNum="dsDataType" color="#E281E0" bgColor="#1E1E1E" />
+            <itemData name="Keyword3" defStyleNum="dsFunction" color="#4DC7AE" bgColor="#1E1E1E" />
+            <itemData name="Keyword4" defStyleNum="dsControlFlow" color="#FF8F59" bgColor="#1E1E1E" />
+            <itemData name="Keyword5" defStyleNum="dsOthers" color="#FF8080" bgColor="#1E1E1E" />
+            <itemData name="Keyword6" defStyleNum="dsOthers" color="#CB4141" bgColor="#1E1E1E" />
+            <itemData name="Keyword7" defStyleNum="dsOthers" color="#F04E00" bgColor="#1E1E1E" />
+            <itemData name="Keyword8" defStyleNum="dsOthers" color="#FFFF7D" bgColor="#1E1E1E" />
+        </itemDatas>
+    </highlighting>
+</language>
