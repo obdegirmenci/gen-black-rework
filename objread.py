@@ -93,7 +93,13 @@ def read_obj_faces_names(fname):
 
         elif ls[0] == 'vt':
             # Texture coordinate
-            v, x, y, z = l.split()
+            try:
+                v, x, y, z = l.split()
+            except ValueError:
+                # Blender OBJ export fix: if the 3rd (W) value is missing, set it to 1.0.
+                v, x, y = l.split()
+                z = 1.0
+
             uv.append((float(x), float(y), float(z)))
 
         elif ls[0] == 'g':
