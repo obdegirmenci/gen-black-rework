@@ -3,7 +3,8 @@
 ## Status
 I decided to improve the project by cleaning the code base and enhancing readability. My aim is to use it for my own needs while adding some quality of life features. As far as I understand, the previous maintainer is not interested in that anymore. The first step of the plan is tidying up the current state, then migrating it to Python 3 completely.
 
-> [!NOTE]  Legal Disclaimer
+> [!NOTE]
+> ### Legal Disclaimer
 > These scripts are provided for _**educational and personal use only**_.
 > 
 > **DO NOT** interfere with any software without owner's permission!
