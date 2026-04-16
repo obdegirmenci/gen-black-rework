@@ -1,15 +1,27 @@
-# __Modification of Gen_black script__
+# Gen Black Rework
 
-Original version: https://linhasverticais.wordpress.com </br>
-Frito version: https://static1.downloadgamemods.com/Live%20for%20Speed/Tools/lfsdk.7z
+## Status
+I decided to improve the project by cleaning the code base and enhancing readability. My aim is to use it for my own needs while adding some quality of life features. As far as I understand, the previous maintainer is not interested in that anymore. The first step of the plan is tidying up the current state, then migrating it to Python 3 completely.
 
-__Requires:__</br>
-Python 2.5 or 2.7</br>
-PIL (Python Imaging Library) for python 2.5 or 2.7
+> [!NOTE]  Legal Disclaimer
+> These scripts are provided for _**educational and personal use only**_.
+> 
+> **DO NOT** interfere with any software without owner's permission!
+> **DO NOT** distribute any materials protected by **copyrights**!
+> 
+> The author does not encourage or recommend its use by others.
+> Users assume full responsibility for any consequences arising from the use of this tool.
 
-If you run this script with [pypy](https://www.pypy.org) it can increase compiling speed by 10-50% depends by project size/quality (personaly i can't install PIL on [pypy](https://www.pypy.org), so render_template not works :/)
+## What does it do?
+It decodes some 3D game objects from their original file format to OBJ format or vice versa.
 
-It can be used with __[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/GenBlack-Multicore-2020-DLC)__
+## Requirements
+- Python 2.5 or 2.7  
+- PIL (Python Imaging Library) for Python 2.5 or 2.7
+
+If you run this script with [PyPy](https://www.pypy.org), it can increase compilation speed by 10-50% depending on project size/quality. (Personally, I can't install PIL on PyPy, so `render_template` does not work.)
+
+It can be used with **[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/GenBlack-Multicore-2020-DLC)**.
 
 <hr>
 
@@ -51,261 +63,271 @@ It can be used with __[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/
         <li><a href="#gen_black-notepad-syntax">Gen_Black Notepad++ syntax</a></li>
       </ul>
     </li>
+	<li><a href="#history--credits">History & Credits</a></li>
     <li><a href="#show-your-support">Show your support</a></li>
   </ol>
 </details>
 
+---
+
 ## Added commands
 
-### GLUE ressurected
-welding two objects, to have smooth edges
+### GLUE (ressurected)
+Welds two objects together to create smooth edges.
 
 ```
 GLUE <obj_name> <obj_name2> <distance>
 ```
 
-example:</br>
+Example:  
 ```
 GLUE m4_C1_Frnt m4_M1_side 0.005
 ```
 
-### SET_TEXTURE_SLOT2 
-for fixing 0.6V ALPHA textures
+### SET_TEXTURE_SLOT2
+Used for fixing 0.6V ALPHA textures.
 
 ```
-SET_TEXTURE_SLOT2 <0-4 transparent type> <part_name> <texture_name_ALP> <texture_appiled_mode> <texture_side> <0-15 slots>
+SET_TEXTURE_SLOT2 <0-4 transparent type> <part_name> <texture_name_ALP> <texture_applied_mode> <texture_side> <0-15 slots>
 ```
-0-4 transparent type:</br>
-0 - not transpaent</br>
-1 - fully transparent</br>
-2 - glass</br>
-3 - light glass</br>
-4 - tinted glass (look for tinted glass in orginal Car2.psh)</br>
 
-example:</br>
+**0-4 transparent type:**  
+0 - not transparent  
+1 - fully transparent  
+2 - glass  
+3 - light glass  
+4 - tinted glass (see tinted glass in original Car2.psh)
+
+Example:  
 ```
 SET_TEXTURE_SLOT2 2 orb2 X_GTW_ALP single top 0 15
 ```
 
-### SUBMESHES_COUNT 
-set sub-mesh count for main mesh (based on idea by [DemonRed](https://www.facebook.com/demonred8/)), intendent to use with __[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/GenBlack-Multicore-2020-DLC)__</br>
+### SUBMESHES_COUNT
+Sets the sub-mesh count for the main mesh (based on an idea by [DemonRed](https://www.facebook.com/demonred8/)). Intended for use with **[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/GenBlack-Multicore-2020-DLC)**.
 
 ```
-SUBMESHES_COUNT <count> 
+SUBMESHES_COUNT <count>
 ```
-it works like `MESH 1` command but with extra step.</br>
 
-example (if you want have total 69 meshes set it to 68. main mesh + 68 sub meshes (childs) = 69):</br>
+Works like the `MESH 1` command but with an extra step.
+
+Example (if you want a total of 69 meshes, set it to 68: main mesh + 68 sub-meshes = 69):  
 ```
 SUBMESHES_COUNT 68
 ```
 
-### MIRROR_STATE 
-set mesh state (based on idea by [DemonRed](https://www.facebook.com/demonred8/))</br>
+### MIRROR_STATE
+Sets the mesh state (based on an idea by [DemonRed](https://www.facebook.com/demonred8/)).
 
 ```
 MIRROR_STATE <state>
 ```
-states:</br>
-MIRROR_ONLY</br>
-MIRROR_FIX_POSSIBLE</br>
 
-example:</br>
+**States:**  
+`MIRROR_ONLY`  
+`MIRROR_FIX_POSSIBLE`
+
+Example:  
 ```
 MESH 1
 MIRROR_STATE MIRROR_ONLY
 ```
 
 ### MESH_TYPE
-set mesh type (based on idea by [DemonRed](https://www.facebook.com/demonred8/))</br>
+Sets the mesh type (based on an idea by [DemonRed](https://www.facebook.com/demonred8/)).
 
 ```
 MESH_TYPE <type>
 ```
-type:</br>
-MAIN - main mesh</br>
-CALIPER - brake caliper</br>
-WHEEL - steering wheel</br>
-DEFAULT - default mesh</br>
-ALWAYS_VISIBLE - always visible, even in F mode</br>
-MIRROR - central rearview mirror</br>
 
-example:</br>
+**Types:**  
+`MAIN` - main mesh  
+`CALIPER` - brake caliper  
+`WHEEL` - steering wheel  
+`DEFAULT` - default mesh  
+`ALWAYS_VISIBLE` - always visible, even in F mode  
+`MIRROR` - central rearview mirror
+
+Example:  
 ```
 MESH 5
 MESH_TYPE ALWAYS_VISIBLE
 ```
 
-### MESH_FIX 
-set mesh fix flag (based on idea by [DemonRed](https://www.facebook.com/demonred8/))</br>
+### MESH_FIX
+Sets the mesh fix flag (based on an idea by [DemonRed](https://www.facebook.com/demonred8/)).
 
 ```
 MESH_FIX <state>
 ```
-states:</br>
-ON -  mirror fix works</br>
-OFF - mirror fix not work</br>
 
-example:</br>
+**States:**  
+`ON` - mirror fix works  
+`OFF` - mirror fix does not work
+
+Example:  
 ```
 MESH 2
 MESH_FIX OFF
 ```
 
-### DELETE_COL ressurected
-deletes colision</br>
+### DELETE_COL (ressurected)
+Deletes collision.
 
 ```
 DELETE_COL <part_name>
 ```
 
 ### DELETE_SHADOW
-deletes shadow</br>
+Deletes shadow.
 
 ```
 DELETE_SHADOW <part_name>
 ```
 
-### DELETE_MODEL ressurected
-deletes parts by specific model</br>
+### DELETE_MODEL (ressurected)
+Deletes parts by specific model.
 
 ```
 DELETE_MODEL <part_name>
 ```
 
-example:</br>
-````
+Example:  
+```
 MODEL 4
 DELETE_MODEL M1_side
-````
+```
 
 ### DEL
-combined DELETE SHADOW/COL/MODEL command</br>
+Combined `DELETE_SHADOW` / `DELETE_COL` / `DELETE_MODEL` command.
 
 ```
-DEL <part_name> <0-2 colision/shadow> <model>
+DEL <part_name> <0-2 collision/shadow> <model>
 ```
-colision/shadow: </br>
-0 - no colision/shadow</br>
-1 - shadow</br>
-2 - colision</br>
 
-model: </br>
-0-9 - model number</br>
--1  - no model choosed</br>
+**collision/shadow:**  
+0 - no collision/shadow  
+1 - shadow  
+2 - collision
 
-example:</br>
+**model:**  
+0-9 - model number  
+-1 - no model chosen
+
+Example:  
 ```
 DEL M1_side 2 4
 ```
 
 ### CHECK_BB
-check texture boundaries</br>
+Checks texture boundaries.
 
 ```
 CHECK_BB <part_name>
 ```
 
-example:</br>
+Example:  
 ```
 CHECK_BB M1_side
 ```
 
 ### SET_BB
-set new boundaries of texture</br>
+Sets new texture boundaries.
 
 ```
 SET_BB <part_name> <x1> <x2> <y1> <y2>
 ```
 
-example:</br>
+Example:  
 ```
 SET_BB M1_side -2.5 2.0 0.5 1.2
 ```
 
 ### SCALE_TEXTURE
-scale texture</br>
+Scales texture (float, 1 = 100%).
 
 ```
 SCALE_TEXTURE <part_name> <scale>
 ```
-float, 1 = 100%</br>
 
-example:</br>
+Example:  
 ```
 SCALE_TEXTURE M1_side 0.5
 ```
 
 ### MOVE_TEXTURE
-move texture</br>
+Moves texture.
 
 ```
 MOVE_TEXTURE <part_name> <left/right> <up/down>
 ```
 
-example:</br>
+Example:  
 ```
 MOVE_TEXTURE M1_side 1.5 1.2
 ```
 
 ### FRONT_TEXTURE_FIX
-simple front texture fix fix</br>
+Simple front texture fix.
 
 ```
 FRONT_TEXTURE_FIX <part_name>
 ```
 
-example:</br>
+Example:  
 ```
 FRONT_TEXTURE_FIX plate_Front
 ```
 
-
 ## Modified commands
 
-### MIRROR GLASS/FIX2/FIX3/BODYOFF/BODYON/BODYFIX
-added more mirror variants</br>
+### MIRROR GLASS / FIX2 / FIX3 / BODYOFF / BODYON / BODYFIX
+Added more mirror variants.
 
-`FIX2/FIX3` works like normal FIX </br>
-
-`GLASS` adding "smooth" for glass (like in orginal vob, i don't know if it does anything at all)</br>
-
-`BODYOFF/BODYON/BODYFIX` adding "smooth" for body parts (like in orginal vob, i don't know if it does anything at all, using only on MESH 1)</br>
+- `FIX2` / `FIX3` work like normal `FIX`.
+- `GLASS` adds "smooth" for glass (like in original vob; unclear if it actually does anything).
+- `BODYOFF` / `BODYON` / `BODYFIX` add "smooth" for body parts (like in original vob; unclear if they actually do anything — use only on `MESH 1`).
 
 ### RENDER_TEMPLATE
-now you can choose if you want use old JPG way or new transparent PNG way! (.jpg or .png at end of filename)
+Now you can choose whether to use the old JPG method or the new transparent PNG method by adding `.jpg` or `.png` at the end of the filename.
 
-example:</br>
+Example:  
 ```
 RENDER_TEMPLATE l_find 33_LIGHTS1.png 0
 ```
 
-
 ## Misc
 
 ### LFSCarImp locked mod object dump
-use __vob_obj_cimp.py__ to dump LFSCarImp locked vob files ;)</br>
+Use `vob_obj_cimp.py` to dump locked LFSCarImp vob files.
 
 ### Base vobs
-in __BASE__ folder:</br>
-- __P__ folder cointains defauld vob bases from pre virtual mirrors ("big wing") update</br>
-- __R__ folder cointains defauld vob bases from post virtual mirrors ("big wing") update, compatible with 0.6V</br>
-- __Custom__ folder cointains custom vob bases</br>
+In the `BASE` folder:
+
+- `P` folder contains default vob bases from before the virtual mirrors ("big wing") update.
+- `R` folder contains default vob bases from after the virtual mirrors ("big wing") update, compatible with 0.6V.
+- `Custom` folder contains custom vob bases.
 
 ### Gen_Black Notepad++ syntax
-Syntax for Notepad++</br>
-_Language > User Defined Language > Define your language... > Import > chose genblack.xml_</br>
-It works with [Visual Studio 2019 Dark Theme for Notepad++](https://github.com/hellon8/VS2019-Dark-Npp)</br>
+Syntax highlighting for Notepad++.
 
-example:</br>
+Go to *Language > User Defined Language > Define your language... > Import* and select `genblack.xml`.
+
+It works with [Visual Studio 2019 Dark Theme for Notepad++](https://github.com/hellon8/VS2019-Dark-Npp).
+
+Example:  
 ![Gen_Black Notepad++ syntax](https://i.imgur.com/eDhyuZN.png)
 
+## History & Credits
+_(**2009** - initial release by original author)_
+Rangel Fisica's [version](https://linhasverticais.wordpress.com/gen_black/)
+
+_(**2013** - complete package with a few improvements)_
+Frito's [version](https://static1.downloadgamemods.com/Live%20for%20Speed/Tools/lfsdk.7z) (dead - will be updated later)
+
+_(**2020** - modded with additional commands)_
+PodFolio's [version](https://github.com/PodFolio/gen_black-mod)
 
 ## Show your support
-Please ⭐️ this repository if this project helped you!</br>
-<a href="https://paypal.me/podfolio">
-  <img src="https://i.imgur.com/9tOq2a6.png" width="200">
-</a>
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/podfolio)
-
+Please ⭐️ this repository if this project helped you. Volunteers are welcome.
