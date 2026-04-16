@@ -36,6 +36,9 @@ parent_dir = os.path.basename(os.path.dirname(file_input))
 # Output directory for dumped mesh OBJ files
 dump_dir = os.path.join(SCRIPT_DIR, "Dump", parent_dir)
 
+# Dump method
+is_file_locked = False
+
 if not os.path.exists(dump_dir):
     os.makedirs(dump_dir)
 
@@ -46,7 +49,13 @@ s.load(file_input)
 # Iterate over sub-meshes and export each as a Wavefront OBJ file
 for me in range(1, 240):
     s.set_mid(me)
-    ti = s.dump_mesh_as_string()
+
+    # Decide dump method
+    if is_file_locked:
+        ti = s.dump_mesh_as_string2()
+    else:
+        ti = s.dump_mesh_as_string()
+
     out_path = os.path.join(dump_dir, "mesh_%i.obj" % me)
     open(out_path, "w").write("".join(ti))
     print "MESH", me, "DONE"
