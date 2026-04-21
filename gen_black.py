@@ -180,7 +180,8 @@ def process(file_command, file_input):
                 msg("Delete %s" % g[ij])
                 for j in range(vob.nf - 1, -1, -1):
                     fii = vob.off_fc + j * 12
-                    if (vob.data[fii + 2] != ij) or (vob.data[fii + 4] != 0):
+                    # MESH 14 - handle object delete fix
+                    if (vob.data[fii + 2] == ij) or (vob.data[fii + 4] == 0):
                         vob.delete_face(j)
 
         # --- MODEL: set the active model index for subsequent ADD/DELETE commands ---
@@ -244,6 +245,23 @@ def process(file_command, file_input):
                     vob.delete_face(flist[i])
                     df += 1
                 msg("%i faces deleted " % df)
+
+        # --- DELETE_BLANK: remove all faces from a unnamed object ---
+        if cmd == "DELETE_BLANK":
+            df = 0
+            g = vob.get_obj_names()
+            blank_ids = [i for i, n in enumerate(g) if n.strip() == ""]
+            if not blank_ids:
+                msg("No blank-named objects found")
+            else:
+                for oid in blank_ids:
+                    msg("Deleting blank object at index %i" % oid)
+                    for j in range(vob.nf - 1, -1, -1):
+                        fii = vob.off_fc + j * 12
+                        if vob.data[fii + 2] == oid:
+                            vob.delete_face(j)
+                            df += 1
+                msg("%i faces deleted" % df)
 
         # --- ADD: insert OBJ faces into a VOB object at model layer 0 ---
         if cmd == "ADD":
