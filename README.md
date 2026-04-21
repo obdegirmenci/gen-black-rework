@@ -59,25 +59,11 @@ It can be used with **[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/
     <li><a href="#lfc-live-for-cruise-model-viewer">LFC (Live For Cruise) Model Viewer</a>
       <ul>
         <li><a href="#features">Features</a></li>
-        <li><a href="#controls">Controls</a>
-          <ul>
-            <li><a href="#camera--view-controls">Camera &amp; View Controls</a></li>
-            <li><a href="#mesh--object-navigation">Mesh &amp; Object Navigation</a></li>
-            <li><a href="#general">General</a></li>
-          </ul>
-        </li>
+        <li><a href="#controls">Controls</a></li>
         <li><a href="#requirements">Requirements</a></li>
         <li><a href="#directory-structure">Directory Structure</a></li>
-        <li><a href="#usage">Usage</a>
-          <ul>
-            <li><a href="#examples">Examples</a></li>
-          </ul>
-        </li>
-        <li><a href="#building-from-legacy-sources">Building from legacy sources</a>
-          <ul>
-            <li><a href="#key-improvements-over-originals">Key improvements over originals</a></li>
-          </ul>
-        </li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#building-from-legacy-sources">Building from legacy sources</a></li>
         <li><a href="#known-limitations">Known limitations</a></li>
         <li><a href="#license">License</a></li>
       </ul>
