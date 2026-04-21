@@ -41,6 +41,7 @@ It can be used with **[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/
         <li><a href="#delete_col-ressurected">DELETE_COL</a></li>
         <li><a href="#delete_shadow">DELETE_SHADOW</a></li>
         <li><a href="#delete_model-ressurected">DELETE_MODEL</a></li>
+        <li><a href="#delete_blank">DELETE_BLANK</a></li>
         <li><a href="#del">DEL</a></li>
         <li><a href="#check_bb">CHECK_BB</a></li>
         <li><a href="#set_bb">SET_BB</a></li>
@@ -210,6 +211,21 @@ Example:
 ```
 MODEL 4
 DELETE_MODEL M1_side
+```
+
+### DELETE_BLANK
+Remove all faces from unnamed (blank) objects.
+
+```
+DELETE_BLANK
+```
+
+Example:  
+```
+MESH 1
+DELETE sheild
+DELETE_BLANK
+DELETE l_brk
 ```
 
 ### DEL
