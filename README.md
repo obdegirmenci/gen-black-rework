@@ -7,10 +7,10 @@ I decided to improve the project by cleaning the code base and enhancing readabi
 > ### Legal Disclaimer
 > These scripts are provided for _**educational and personal use only**_.
 > 
-> **DO NOT** interfere with any software without owner's permission!
-> **DO NOT** distribute any materials protected by **copyrights**!
+> **DO NOT** interfere with any software without owner's permission!  
+> **DO NOT** distribute any materials protected by **copyrights**!  
 > 
-> The author does not encourage or recommend its use by others.
+> The author does not encourage or recommend its use by others.  
 > Users assume full responsibility for any consequences arising from the use of this tool.
 
 ## What does it do?
@@ -56,6 +56,32 @@ It can be used with **[GenBlack Multicore 2020 DLC](https://github.com/PodFolio/
         <li><a href="#render_template">RENDER_TEMPLATE</a></li>
       </ul>
     </li>
+    <li><a href="#lfc-live-for-cruise-model-viewer">LFC (Live For Cruise) Model Viewer</a>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#controls">Controls</a>
+          <ul>
+            <li><a href="#camera--view-controls">Camera &amp; View Controls</a></li>
+            <li><a href="#mesh--object-navigation">Mesh &amp; Object Navigation</a></li>
+            <li><a href="#general">General</a></li>
+          </ul>
+        </li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#directory-structure">Directory Structure</a></li>
+        <li><a href="#usage">Usage</a>
+          <ul>
+            <li><a href="#examples">Examples</a></li>
+          </ul>
+        </li>
+        <li><a href="#building-from-legacy-sources">Building from legacy sources</a>
+          <ul>
+            <li><a href="#key-improvements-over-originals">Key improvements over originals</a></li>
+          </ul>
+        </li>
+        <li><a href="#known-limitations">Known limitations</a></li>
+        <li><a href="#license">License</a></li>
+      </ul>
+    </li> 
     <li>
       <a href="#misc">Misc</a>
       <ul>
@@ -297,6 +323,96 @@ Example:
 ```
 RENDER_TEMPLATE l_find 33_LIGHTS1.png 0
 ```
+
+## LFC (Live For Cruise) Model Viewer
+
+A unified OpenGL viewer for `.vob` and `.wld`/`.cem` mesh files. Combines low‑level VOB parsing with the Blackwood API for WLD files, providing an interactive 3D inspection tool.
+
+![Screenshot Placeholder]()
+
+### Features
+
+- **Dual format support** – open `.vob` (mesh parts) and `.wld` / `.cem` (complete vehicles) files.
+- **Interactive camera** – orbit, pan, dolly, zoom, auto‑rotate.
+- **View modes** – wireframe, X‑ray, isolate selected object, glowing outline.
+- **Mesh navigation** – switch between sub‑meshes (Page Up/Down).
+- **Object selection** (VOB mode) – cycle through named parts (`1` / `2` keys).
+- **Background colour palette** – 33 presets, cycle with `3` / `4`.
+- **Auto‑fit** – automatically adjust camera distance and target (`F` key).
+- **On‑screen HUD** – shows current background and mode toggles.
+- **Ground grid** – reference grid on the XY plane (Z=0).
+
+### Controls
+
+| Category | Keys / Mouse |
+|----------|---------------|
+| **Orbit** | Left drag / Arrow keys |
+| **Dolly** | Middle drag / `W` `S` |
+| **Pan** | Right drag / `A` `D` (horizontal), `Q` `E` (vertical) |
+| **Zoom** | Mouse wheel / `+` `-` |
+| **Auto‑rotate** | `R` |
+| **Fit view** | `F` |
+| **Wireframe** | `Z` |
+| **X‑ray** | `X` |
+| **Isolate** | `C` |
+| **Outline** | `V` |
+| **Mesh prev/next** | Page Down / Page Up |
+| **Select object (VOB)** | `1` (previous), `2` (next) |
+| **Background colour** | `3` (previous), `4` (next) |
+| **Exit** | `ESC` |
+
+### Requirements
+
+- Python **2.7**
+- OpenGL, GLUT, GLU bindings (`PyOpenGL 3.1.6`, `freeglut`)
+- `PIL` / `Pillow`
+- `blackwood` – custom file access module
+
+### Directory Structure
+
+Textures are looked up in `tex/jpg/` relative to the working directory.  
+Place your `.jpg` texture files there (e.g. `tex/jpg/HEL_DEFAULT.jpg`).
+
+### Usage
+
+```bash
+python viewer.py <file.vob> [mesh_id]
+python viewer.py <file.wld> [mesh_id]
+python viewer.py <file.cem> [mesh_id]
+```
+
+- `mesh_id` is optional (default = 1). For VOB files it selects the sub‑mesh (if the file contains multiple meshes). For WLD/CEM it selects the mesh index inside the file.
+
+Examples:
+
+```bash
+python viewer.py veh/XR.vob
+python viewer.py veh/Blackwood.wld 40
+```
+
+### Building from legacy sources
+
+This viewer merges and improves two deprecated original scripts:
+
+- `view_things.py` – WLD viewer using the Blackwood API.
+- `vob_view.py` – low‑level VOB parser.
+
+Key improvements over the originals:
+
+- Interactive camera instead of fixed rotation.
+- Stencil‑based outline selection.
+- Multiple view toggles (wireframe, X‑ray, isolate).
+- Background colour palette.
+- Sub‑mesh switching.
+- Auto‑fit and bounding box calculation.
+- Proper Z‑up coordinate handling for VOB geometry.
+- Texture cache and display list reuse.
+
+### Known limitations
+
+- Textures are expected in `tex/jpg/`; paths are not configurable at runtime.
+- Only `.jpg` textures are supported.
+- Python 2.7 only (due to `blackwood` module and legacy code).
 
 ## Misc
 
