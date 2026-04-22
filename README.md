@@ -419,7 +419,7 @@ Key improvements over the originals:
 ## Misc
 
 ### LFSCarImp locked mod object dump
-Use `vob_obj_cimp.py` to dump locked LFSCarImp vob files.
+Use `is_file_locked = True` flag in `vob_obj.py` to dump locked LFSCarImp vob files.
 
 ### Base vobs
 In the `BASE` folder:
