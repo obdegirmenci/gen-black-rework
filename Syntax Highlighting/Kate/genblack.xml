@@ -6,7 +6,7 @@
         <!-- ========== 1. KEYWORD LISTS ========== -->
         <list name="keywords1">
             <item> ENABLE </item> <item> DIASABLE </item> <item> GLUE </item> <item> DELETE_ALL </item>
-            <item> CLEAN_ALL </item> <item> DELETE_MODEL </item> <item> CLEAN_MODEL </item> <item> DELETE_COL </item>
+            <item> CLEAN_ALL </item> <item> DELETE_MODEL </item> <item> DELETE_BLANK </item> <item> CLEAN_MODEL </item> <item> DELETE_COL </item>
             <item> CLEAN_COL </item> <item> DELETE_SHADOW </item> <item> CLEAN_SHADOW </item> <item> DELETE </item>
             <item> CLEAN </item> <item> ADD </item> <item> ADD_LOD1 </item> <item> ADD_SHADOW </item> <item> ADD_LOD2 </item>
             <item> ADD_COL </item> <item> ADJUST_TEXTURE_SIZE </item> <item> RENDER_TEMPLATE </item> <item> SET_TEXTURE_SLOT </item>
