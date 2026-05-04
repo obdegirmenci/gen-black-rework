@@ -24,7 +24,7 @@
             <Keywords name="Folders in comment, open"></Keywords>
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
-            <Keywords name="Keywords1">enable diasable glue delete_all clean_all delete_model clean_model delete_col clean_col delete_shadow clean_shadow delete clean add add_lod1 add_shadow add_lod2 add_col adjust_texture_size render_template set_texture_slot set_texture_slot2 set_texture_slot3 new_object set_color del set_bb check_bb scale_texture move_texture plate_fix</Keywords>
+            <Keywords name="Keywords1">enable diasable glue delete_all clean_all delete_model delete_blank clean_model delete_col clean_col delete_shadow clean_shadow delete clean add add_lod1 add_shadow add_lod2 add_col adjust_texture_size render_template set_texture_slot set_texture_slot2 set_texture_slot3 new_object set_color del set_bb check_bb scale_texture move_texture plate_fix</Keywords>
             <Keywords name="Keywords2">single extend</Keywords>
             <Keywords name="Keywords3">opaque shine</Keywords>
             <Keywords name="Keywords4">top front side back</Keywords>
