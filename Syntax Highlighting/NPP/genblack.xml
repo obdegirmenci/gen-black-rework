@@ -24,14 +24,14 @@
             <Keywords name="Folders in comment, open"></Keywords>
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
-            <Keywords name="Keywords1">enable diasable glue delete_all clean_all delete_model delete_blank clean_model delete_col clean_col delete_shadow clean_shadow delete clean add add_lod1 add_shadow add_lod2 add_col adjust_texture_size render_template set_texture_slot set_texture_slot2 set_texture_slot3 new_object set_color del set_bb check_bb scale_texture move_texture plate_fix</Keywords>
-            <Keywords name="Keywords2">single extend</Keywords>
-            <Keywords name="Keywords3">opaque shine</Keywords>
-            <Keywords name="Keywords4">top front side back</Keywords>
-            <Keywords name="Keywords5">model</Keywords>
-            <Keywords name="Keywords6">mesh</Keywords>
-            <Keywords name="Keywords7">submeshes_count &quot;mirror_state mirror_only&quot; &quot;mirror_state mirror_fix_possible&quot; &quot;mesh_type main&quot; &quot;mesh_type caliper&quot; &quot;mesh_type wheel&quot; &quot;mesh_type default&quot; &quot;mesh_type always_visible&quot; &quot;mesh_type mirror&quot; &quot;mesh_fix on&quot; &quot;mesh_fix off&quot; &quot;mirror on&quot; &quot;mirror off&quot; &quot;mirror fix&quot; &quot;mirror fix2&quot; &quot;mirror fix3&quot; &quot;mirror bodyon&quot; &quot;mirror bodyoff&quot; &quot;mirror bodyfix&quot;</Keywords>
-            <Keywords name="Keywords8">load write exit</Keywords>
+            <Keywords name="Keywords1">ENABLE DIASABLE GLUE DELETE_ALL CLEAN_ALL DELETE_MODEL DELETE_BLANK CLEAN_MODEL DELETE_COL CLEAN_COL DELETE_SHADOW CLEAN_SHADOW DELETE CLEAN ADD ADD_LOD1 ADD_SHADOW ADD_LOD2 ADD_COL ADJUST_TEXTURE_SIZE RENDER_TEMPLATE SET_TEXTURE_SLOT SET_TEXTURE_SLOT2 SET_TEXTURE_SLOT3 NEW_OBJECT SET_COLOR DEL SET_BB CHECK_BB SCALE_TEXTURE MOVE_TEXTURE PLATE_FIX</Keywords>
+            <Keywords name="Keywords2">SINGLE EXTEND</Keywords>
+            <Keywords name="Keywords3">OPAQUE SHINE</Keywords>
+            <Keywords name="Keywords4">TOP FRONT SIDE BACK</Keywords>
+            <Keywords name="Keywords5">MODEL</Keywords>
+            <Keywords name="Keywords6">MESH</Keywords>
+            <Keywords name="Keywords7">SUBMESHES_COUNT &quot;MIRROR_STATE MIRROR_ONLY&quot; &quot;MIRROR_STATE MIRROR_FIX_POSSIBLE&quot; &quot;MESH_TYPE MAIN&quot; &quot;MESH_TYPE CALIPER&quot; &quot;MESH_TYPE WHEEL&quot; &quot;MESH_TYPE DEFAULT&quot; &quot;MESH_TYPE ALWAYS_VISIBLE&quot; &quot;MESH_TYPE MIRROR&quot; &quot;MESH_FIX ON&quot; &quot;MESH_FIX OFF&quot; &quot;MIRROR on&quot; &quot;MIRROR OFF&quot; &quot;MIRROR FIX&quot; &quot;MIRROR FIX2&quot; &quot;MIRROR FIX3&quot; &quot;MIRROR BODYON&quot; &quot;MIRROR BODYOFF&quot; &quot;MIRROR BODYFIX&quot;</Keywords>
+            <Keywords name="Keywords8">LOAD WRITE EXIT</Keywords>
             <Keywords name="Delimiters"></Keywords>
         </KeywordLists>
         <Styles>
