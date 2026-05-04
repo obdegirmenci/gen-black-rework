@@ -448,5 +448,8 @@ Frito's [version](https://static1.downloadgamemods.com/Live%20for%20Speed/Tools/
 _(**2020** - modded with additional commands)_
 PodFolio's [version](https://github.com/PodFolio/gen_black-mod)
 
+_(**2026** - bug fixes, cleaned code base and additional features)_
+Rework [version](https://github.com/obdegirmenci/gen-black-rework)
+
 ## Show your support
 Please ⭐️ this repository if this project helped you. Volunteers are welcome.
